@@ -1,0 +1,16 @@
+# Workspace root for the DevOps Study Tracker (not a package itself).
+[tool.uv.workspace]
+members = ["src/backend", "src/frontend"]
+
+[dependency-groups]
+dev = [
+    "commitizen",
+    "pre-commit",
+]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "commitizen"
+version = "0.0.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
