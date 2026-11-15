@@ -1,0 +1,20 @@
+[project]
+name = "study-tracker-backend"
+version = "0.0.0"
+description = "Backend API for traking study for DevOPs certifications"
+readme = "README.md"
+authors = [
+  { name = "James Richardson", email = "james.richardson@invertedlight.com" },
+]
+requires-python = ">=3.15"
+dependencies = ["fastapi>=0.163.0", "httpx>=0.28.1", "uvicorn>=0.54.0"]
+
+[project.scripts]
+study-tracker-api = "backend.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
