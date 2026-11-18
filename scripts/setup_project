@@ -1,8 +1,8 @@
 #!/bin/bash
-if ! command -v cz >/dev/null && [ "$DEVPOD" = "true" ]; then
-  git config --global push.autoSetupRemote true
-  git config --global --add safe.directory /workspaces/devops2
-  uv sync
-  uv run pre-commit install
-  uv run pre-commit install --hook-type commit-msg
+if [ ! -f .git/hooks/commit-msg ] && [ "$DEVPOD" = "true" ]; then
+	git config --global push.autoSetupRemote true
+	git config --global --add safe.directory /workspaces/devops2
+	uv sync
+	uv run pre-commit install
+	uv run pre-commit install --hook-type commit-msg
 fi
