@@ -1,0 +1,14 @@
+{
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "mise trust && mise install && bash scripts/setup_project",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [
+    22111,
+    22112
+  ]
+}
