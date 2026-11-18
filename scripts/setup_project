@@ -1,0 +1,10 @@
+#!/bin/bash
+if ! command -v cz >/dev/null && [ "$DEVPOD" = "true" ]; then
+  git config --global push.autoSetupRemote true
+  git config --global --add safe.directory /workspaces/devops2
+  uv sync #instead of pip install Ubuntu 24.04 blocks pip install
+  #pip install --user pipx
+  #pipx install commitizen
+  pre-commit install
+  pre-commit install --hook-type commit-msg
+fi
